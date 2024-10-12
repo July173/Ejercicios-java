@@ -10,9 +10,10 @@ package ejercicio;
  */
 public class TareaBasica extends Tarea {
 
-    /**
-     *
-     */
+    public TareaBasica(int prioridad, String nombre) {
+        super(prioridad, nombre);
+    }
+    
     @Override
     public void procesar(){
         System.out.println("Procesando tarea basica "+ nombre);};

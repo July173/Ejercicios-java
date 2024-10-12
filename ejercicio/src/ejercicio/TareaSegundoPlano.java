@@ -10,9 +10,10 @@ package ejercicio;
  */
 public class TareaSegundoPlano extends Tarea  {
 
-    /**
-     *
-     */
+    public TareaSegundoPlano(int prioridad, String nombre) {
+        super(prioridad, nombre);
+    }
+    
     @Override
     public void procesar(){
         System.out.println("Procesando tarea de segundo plano:"+ nombre);};

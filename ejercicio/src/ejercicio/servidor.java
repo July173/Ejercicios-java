@@ -13,17 +13,34 @@ public class servidor {
     public int cargaActual;
     public int capacidadMaxima;
     
-    public void asignarTarea(Tarea tarea){
-        if (cargaActual < capacidadMaxima) {
-           
-            tarea.procesar();
-            cargaActual++;
-        } else {
-            System.out.println("El servidor " + nombre + " está sobrecargado.");
-        }
-    };
+    // Constructor
+    public servidor(String nombre, int capacidadMaxima) {
+        this.nombre = nombre;
+        this.capacidadMaxima = capacidadMaxima;
+        this.cargaActual = 0;  // Inicialmente no hay carga
+    }
     
-      public void balancearCarga() {
-          
-      }
+     // Método para procesar una tarea
+    public void asignarYProcesarTarea(Tarea tarea) {
+        if (cargaActual < capacidadMaxima) {
+            System.out.println(nombre + " está procesando la tarea: " + tarea.getNombre());
+            tarea.procesar(); // Procesa la tarea
+            cargaActual++; // Incrementa la carga del servidor
+        } else {
+            System.out.println("El servidor " + nombre + " está lleno. No puede procesar más tareas.");
+        }
+    }
+
+    // Sobrecarga: Método para procesar dos tareas
+    public void asignarYProcesarTarea(Tarea tarea1, Tarea tarea2) {
+        if (cargaActual + 2 <= capacidadMaxima) { // Verifica si hay espacio para dos tareas
+            System.out.println(nombre + " está procesando las tareas: " + tarea1.getNombre() + " y " + tarea2.getNombre());
+            tarea1.procesar(); // Procesa la primera tarea
+            tarea2.procesar(); // Procesa la segunda tarea
+            cargaActual += 2; // Incrementa la carga del servidor por dos
+        } else {
+            System.out.println("El servidor " + nombre + " no puede procesar más tareas.");
+        }
+    }
+
 }

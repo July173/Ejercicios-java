@@ -10,10 +10,19 @@ package ejercicio;
  */
 public abstract class Tarea {
     
-    protected int ID_tarea;
-    protected String prioridad;
+    protected int prioridad;
     protected String nombre;
     
+    // Constructor
+     public Tarea(int prioridad, String nombre) {
+        this.prioridad = prioridad;
+        this.nombre = nombre;
+    }
+     
+      public String getNombre() {
+        return nombre;
+    }
+      
     public abstract void procesar();
     
 }
